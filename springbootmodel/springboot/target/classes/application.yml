@@ -1,0 +1,29 @@
+server:
+  port: 8080
+  error:
+    whitelabel:
+      enabled: false
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: ljksky12138
+    #记住url这个格式就行了 jdbc:mysql://localhost:3306/数据库名
+    url: jdbc:mysql://localhost:3306/myspringboot?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false&serverTimezone=GMT%2b8&allowPublicKeyRetrieval=true
+  main:
+    allow-circular-references: true
+  servlet:
+    multipart:
+      max-file-size: 128MB # 最大文件大小
+      max-request-size: 128MB # 最大请求大小
+
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSq
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.example.entity
